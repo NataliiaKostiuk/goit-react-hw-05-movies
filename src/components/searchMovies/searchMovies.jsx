@@ -7,7 +7,7 @@ const formSchema = Yup.object().shape({
   query: Yup.string().required('This field is required!').trim().lowercase(),
 })
 
-export const SearchMovies = ({handleSubmit}) => {
+export const SearchMovies = ({ handleSubmit }) => {
     return (
 <Formik
        initialValues={{

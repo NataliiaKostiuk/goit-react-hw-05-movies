@@ -14,14 +14,13 @@ export const Cast = () => {
     const [loading, setLoading] = useState(false);
     // eslint-disable-next-line
     const [error, setError] = useState(false);
- 
+  
     useEffect(() => {
         async function getMoviesCast() {
            setError(false);
            setLoading(true);
           try {
               const data = await fetchMovieCasts(params.movieId);
-              toast.success('Successfully created!');
               setData( [...data]);
           } catch (error) {
               console.log(error);
@@ -33,7 +32,6 @@ export const Cast = () => {
       getMoviesCast()
     
     }, [params.movieId])
-
   return (
     <div>
       {loading && <Loader />}

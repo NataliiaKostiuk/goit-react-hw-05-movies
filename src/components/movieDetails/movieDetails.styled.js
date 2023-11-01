@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
  
 export const Container = styled.div`
+margin-top: 50px;
 display: flex;
 gap: 20px;
 `;

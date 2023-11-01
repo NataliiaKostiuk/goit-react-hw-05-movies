@@ -6,6 +6,7 @@ import { MoviesList } from "components/MoviesList/MoviesList";
 import { Loader } from "Loader/loader";
 
 
+
  export default function Home() {
     const [objects, setData] = useState([]);
     const [loading, setLoading] = useState(false);

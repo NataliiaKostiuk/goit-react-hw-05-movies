@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 import { Loader } from 'Loader/loader';
 import { SearchMovies } from '../components/searchMovies/searchMovies';
 import { Suspense, useState,useEffect } from 'react';
-import {  useSearchParams ,Outlet} from 'react-router-dom';
+import {  useSearchParams, Outlet } from 'react-router-dom';
 import { fetchMoviesByKeyword } from '../components/ApiService';
 
 export default function Movies () {
@@ -17,11 +17,9 @@ export default function Movies () {
   const [loading, setLoading] = useState(false);
   // eslint-disable-next-line
   const [error, setError] = useState(false);
- const [params, setParams] = useSearchParams();
-
+  const [params, setParams] = useSearchParams();
+  
    const search = params.get('query') ?? '';
-   console.log(search);
-
 
   const handleSubmit = value => {
     params.set('query', value);
@@ -48,7 +46,6 @@ export default function Movies () {
     async function getMovieByKeyword() {
       setError(false);
       setLoading(true);
-      console.log(query);
       try {
         const data = await fetchMoviesByKeyword(query ,page);
         toast.success('Successfully created!');

@@ -19,7 +19,6 @@ export const Review = () => {
            setLoading(true);
           try {
               const data = await fetchMovieReviews(params.movieId);
-              toast.success('Successfully created!');
               setData( [...data]);
           } catch (error) {
               console.log(error);

@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 export const LinkGoBack = styled(NavLink)`
 font-weight: 500;
+position:fixed;
 text-decoration: none;
 color:rgb(2, 35, 72);
 display: inline-block;

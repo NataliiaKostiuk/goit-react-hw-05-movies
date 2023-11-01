@@ -1,7 +1,7 @@
 import{LinkGoBack } from './LinkBack.styled'
 
-export const LinkBack = ({locationLink}) => {
+export const LinkBack = ({to}) => {
     return (
-        <LinkGoBack  to={locationLink}>Go Back</LinkGoBack >
+        <LinkGoBack  to={to}>Go Back</LinkGoBack >
     )
 }

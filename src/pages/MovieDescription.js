@@ -3,9 +3,8 @@ import { useEffect, useState,Suspense } from "react";
 import toast from 'react-hot-toast';
 import { Loader } from "Loader/loader";
 import { fetchMovieById} from "components/ApiService";
-import {  useParams,Outlet, useLocation  } from "react-router-dom";
+import {  useParams, Outlet } from "react-router-dom";
 import { MovieDetails } from "components/movieDetails/movieDetails";
-import { LinkBack } from "components/LinkBack/LinkBack";
 
 
 
@@ -15,7 +14,7 @@ export default function MovieDescription ()  {
     // eslint-disable-next-line
     const [error, setError] = useState(false);
     const params = useParams();
-    const location = useLocation();
+;
 
     useEffect(() => {
         async function getMovieById() {
@@ -35,7 +34,6 @@ export default function MovieDescription ()  {
     }, [params.movieId])
     return (
         <>
-         <LinkBack locationLink={ location.state?.from ?? '/movies'} />   
             {loading && <Loader />}            
             <MovieDetails object={object} /> 
         <Suspense fallback={'LOADING ...'}>

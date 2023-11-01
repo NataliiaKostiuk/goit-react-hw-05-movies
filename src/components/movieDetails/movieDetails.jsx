@@ -1,9 +1,12 @@
-
+import { LinkBack } from "components/LinkBack/LinkBack";
 import { imageValidation } from "components/validImage";
-import { Outlet } from "react-router-dom";
-import { Suspense } from "react";
+import { Outlet,useLocation } from "react-router-dom";
+import { Suspense,useRef } from "react";
 import { Container, WrapLink,BtnLink } from "./movieDetails.styled";
 export const MovieDetails = ({ object }) => {
+     const location = useLocation();
+
+     const backLinkLocationRef = useRef(location.state?.from ?? '/movies')
     const { poster_path, title,id, name, original_title, overview, genres,vote_average } = object;
     const getGenres = (genres) => {
        if (genres=== undefined) {
@@ -12,6 +15,7 @@ export const MovieDetails = ({ object }) => {
         return genres.map(el => el.name).join(' | '); 
     }
     return (<>
+         <LinkBack to= {backLinkLocationRef.current}/>
         <Container>
             <img src={imageValidation(poster_path, 200)} alt={title} />
             <div>
@@ -23,8 +27,8 @@ export const MovieDetails = ({ object }) => {
             </div>
         </Container>
              <WrapLink>
-            <BtnLink to={`/movies/${id}/cast`}>Cast</BtnLink>
-            <BtnLink to={`/movies/${id}/review`} >Review</BtnLink> 
+            <BtnLink to={`/movies/${id}/cast`}state={{ from: location }}>Cast</BtnLink>
+            <BtnLink to={`/movies/${id}/review`}state={{ from: location }} >Review</BtnLink> 
             </WrapLink>
     <Suspense>
          <Outlet />
